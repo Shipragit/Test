@@ -16,9 +16,9 @@ jobs:
       - name: ServiceNow CI/CD Apply Changes
         uses: ServiceNow/sncicd-apply-changes@2.0.0
         env:
-          nowUsername: ${{ secrets.NOW_USERNAME1 }}
-          nowPassword: ${{ secrets.NOW_PASSWORD1 }}
-          nowSourceInstance: ${{ secrets.NOW_SOURCE_INSTANCE }}
+          nowUsername: ${{ secrets.SN_DEV_USERNAME }}
+          nowPassword: ${{ secrets.SN_DEV_PASSWORD }}
+          nowSourceInstance: ${{ secrets.SN_DEV_INSTANCE }}
           appSysID: ${{ secrets.APP_SYS_ID }}
 
       - name: ServiceNow CI/CD Publish App
@@ -28,9 +28,9 @@ jobs:
           versionTemplate: 1.1
           versionFormat: template
         env:
-          nowUsername: ${{ secrets.NOW_USERNAME1 }}
-          nowPassword: ${{ secrets.NOW_PASSWORD1 }}
-          nowSourceInstance: ${{ secrets.NOW_SOURCE_INSTANCE }}
+          nowUsername: ${{ secrets.SN_DEV_USERNAME }}
+          nowPassword: ${{ secrets.SN_DEV_PASSWORD }}
+          nowSourceInstance: ${{ secrets.SN_DEV_INSTANCE }}
           appSysID: ${{ secrets.APP_SYS_ID }}
 
     outputs:
@@ -48,7 +48,7 @@ jobs:
         with:
           version: ${{ needs.build.outputs.publishversion }}
         env:
-          nowUsername: ${{ secrets.NOW_USERNAME2 }}
-          nowPassword: ${{ secrets.NOW_PASSWORD2 }}
-          nowInstallInstance: ${{ secrets.NOW_TARGET_INSTANCE }}
+          nowUsername: ${{ secrets.SN_PROD_USERNAME }}
+          nowPassword: ${{ secrets.SN_PROD_PASSWORD }}
+          nowInstallInstance: ${{ secrets.SN_PROD_INSTANCE }}
           appSysID: ${{ secrets.APP_SYS_ID }}
