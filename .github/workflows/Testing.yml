@@ -79,6 +79,8 @@ jobs:
           body: |
             The deployment job has completed successfully.
             Installed version: ${{ needs.build.outputs.publishversion }}
+            Do not reply to mail. 
+            This is an automated email from DevOps team.
           to: ${{ secrets.NOTIFY_EMAIL }}
           from: ${{ secrets.EMAIL_USERNAME }}
 
