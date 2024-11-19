@@ -35,6 +35,20 @@ jobs:
     outputs:
       publishversion: ${{ steps.publish_app.outputs.newVersion }}
 
+      - name: Send Email Notification for Build
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 587
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: "Build Job Completed"
+          body: |
+            The build job has completed successfully.
+            Published version: ${{ steps.publish_app.outputs.newVersion }}
+          to: ${{ secrets.NOTIFY_EMAIL }}
+          from: ${{ secrets.EMAIL_USERNAME }}
+
   deployprod:
     needs: build
     name: Deploy to Prod
