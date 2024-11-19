@@ -23,7 +23,7 @@
         <scoped_administration>false</scoped_administration>
         <short_description>Testing</short_description>
         <source>x_fobr_testing</source>
-        <store_correlation_id>REPOAPP0001901463</store_correlation_id>
+        <store_correlation_id>REPOAPP0001901473</store_correlation_id>
         <store_url/>
         <subscription_entitlement/>
         <sys_class_name>sys_app</sys_class_name>
@@ -31,15 +31,15 @@
         <sys_created_by>shiva.kumara@brightspeed.com</sys_created_by>
         <sys_created_on>2024-11-14 09:16:00</sys_created_on>
         <sys_id>c66587ae1b3d52105127a933604bcb3c</sys_id>
-        <sys_mod_count>39</sys_mod_count>
+        <sys_mod_count>41</sys_mod_count>
         <sys_updated_by>shivakumara.appaji@infinite.com</sys_updated_by>
-        <sys_updated_on>2024-11-19 05:59:15</sys_updated_on>
+        <sys_updated_on>2024-11-19 06:09:37</sys_updated_on>
         <template/>
         <trackable>true</trackable>
         <uninstall_blocked>false</uninstall_blocked>
         <user_role/>
         <vendor/>
         <vendor_prefix/>
-        <version>1.1.26</version>
+        <version>1.1.27</version>
     </sys_app>
 </record_update>
