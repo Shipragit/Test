@@ -43,6 +43,7 @@ jobs:
           body: |
             The build job has completed successfully.
             Published version: ${{ steps.publish_app.outputs.newVersion }}
+            Do not reply to mail. This is an automated email from DevOps team 
           to: ${{ secrets.NOTIFY_EMAIL }}
           from: ${{ secrets.EMAIL_USERNAME }}
 
