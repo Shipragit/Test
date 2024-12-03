@@ -22,7 +22,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.GITHUB_TOKEN }} # Use a PAT if accessing a different repo
+          token: ${{ secrets.TOKEN }} # Use a PAT if accessing a different repo
           ref: master # Ensure this matches the correct branch
 
       - name: Initialize CodeQL
