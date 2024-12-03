@@ -1,17 +1,17 @@
-
 name: "CodeQL for ServiceNow"
 
 on:
-   workflow_dispatch:
+  workflow_dispatch:
     inputs:
       RunScript:
-        description: "To run codescan"
+        description: "Run the CodeQL scan"
         required: true
         default: 'false'
 
 jobs:
   analyze:
-    name: Analyze (${ { matrix.language } })
+    if: ${{ inputs.RunScript == 'true' }} # Run the job only if RunScript is true
+    name: Analyze (${{ matrix.language }})
     runs-on: ubuntu-latest
     permissions:
       security-events: write
