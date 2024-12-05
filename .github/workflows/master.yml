@@ -25,6 +25,9 @@ jobs:
           token: ${{ secrets.TOKEN }} # Use a PAT if accessing a different repo
           ref: master # Ensure this matches the correct branch
 
+      - name: List files in repo
+        run: ls -R
+
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
