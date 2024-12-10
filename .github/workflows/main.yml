@@ -1,4 +1,4 @@
-name: Example workflow using Snyk
+name: Example workflow for ServiceNow using Snyk
 on: 
  workflow_dispatch:
     inputs:
@@ -11,9 +11,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      
+      - name: Install Snyk CLI
+        run: |
+          curl -o- https://snyk.io/install.sh | bash
+          export PATH=$HOME/.snyk/bin:$PATH
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions@v3
-        with:
-          args: test
+        run: snyk test --file=path/to/javascript/files
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+      - name: Monitor ServiceNow Code
+        run: snyk monitor
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
