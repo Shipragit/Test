@@ -1,0 +1,17 @@
+name: Example workflow using Snyk
+on: 
+ workflow_dispatch:
+    inputs:
+      RunScript:
+        description: "To run codescan"
+        required: true
+        default: 'false'
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/javascript@master 
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
