@@ -19,6 +19,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Install Trivy
+        run: |
+          sudo apt-get update
+          sudo apt-get install wget -y
+          wget -qO- https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.45.0_Linux-64bit.tar.gz | tar xvz
+          sudo mv trivy /usr/local/bin/
+
       - name: Run Trivy vulnerability scanner on files
         run: |
           trivy fs --severity CRITICAL,HIGH --output trivy-results.sarif --format sarif .
